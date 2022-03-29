@@ -10,6 +10,7 @@ export default class UserAccountsSchema extends BaseSchema {
       table.string('email', 255).notNullable()
       table.string('password', 180).notNullable()
       table.string('remember_me_token').nullable()
+      table.enum('status', ['active', 'deleted', 'disabled'])
 
       /**
        * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL

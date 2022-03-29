@@ -22,6 +22,9 @@ export default class UserAccount extends BaseModel {
   @hasMany(() => Preset)
   public presets: HasMany<typeof Preset>
 
+  @column()
+  public status: 'active' | 'deleted' | 'disabled'
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

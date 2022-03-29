@@ -20,8 +20,15 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.group(() => {
-  Route.resource('presets', 'PresetsController')
+Route.get('login', 'AuthController.login')
+Route.post('login', 'AuthController.attempt')
+
+Route.resource('presets', 'PresetsController').middleware({
+  create: 'auth',
+  edit: 'auth',
+  destroy: 'auth',
+  store: 'auth',
+  update: 'auth',
 })
 
 Route.get('/', ({ response }) => {

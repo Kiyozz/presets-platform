@@ -26,7 +26,7 @@ export const csp: ShieldConfig['csp'] = {
   | The CSP rules are disabled by default for seamless onboarding.
   |
   */
-  enabled: false,
+  enabled: true,
 
   /*
   |--------------------------------------------------------------------------
@@ -44,7 +44,11 @@ export const csp: ShieldConfig['csp'] = {
   | }
   |
   */
-  directives: {},
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'"],
+    fontSrc: ["'self'"],
+  },
 
   /*
   |--------------------------------------------------------------------------
@@ -108,7 +112,7 @@ export const csrf: ShieldConfig['csrf'] = {
   | AJAX requests.
   |
   */
-  enableXsrfCookie: true,
+  enableXsrfCookie: false,
 
   /*
   |--------------------------------------------------------------------------

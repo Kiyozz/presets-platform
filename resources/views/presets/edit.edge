@@ -6,14 +6,13 @@
 
 @section('body')
 @component('partials/nav')
-<button>Login</button>
-<button>Login</button>
+  @!component('partials/nav-actions')
 @end
 
 <main class="px-4 py-8 container mx-auto">
   <h1 class="text-center mb-8 flex items-center">
     <a href="/presets">Back</a>
-    <span class="grow text-4xl "><code class="bg-gray-300">{{ preset.name }}</code></span>
+    <span class="grow text-4xl "><code>{{ preset.name }}</code></span>
   </h1>
 </main>
 @end

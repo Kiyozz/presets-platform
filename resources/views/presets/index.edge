@@ -6,8 +6,7 @@
 
 @section('body')
   @component('partials/nav')
-    <button>Login</button>
-    <button>Login</button>
+    @!component('partials/nav-actions')
   @end
 
   <main class="px-4 py-8 container mx-auto">
@@ -17,7 +16,7 @@
       @each(preset in presets)
       <article class="p-4 border rounded flex flex-col gap-2">
         <div class="text-2xl text-center">{{ preset.name }}</div>
-        <div class="text-sm text-center">by <code class="bg-gray-300">{{ preset.createdBy.username }}</code></div>
+        <div class="text-sm text-center">by <code>{{ preset.createdBy.username }}</code></div>
         <img class="mx-auto h-48 w-48 object-contain" src="{{ preset.mainImage }}" alt="{{ preset.name }} main image">
         <div class="flex flex-row-reverse gap-4">
           <a href="{{ route('PresetsController.show', { id: preset.id }) }}">View</a>

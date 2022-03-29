@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, BelongsTo, belongsTo } from '@ioc:Adonis/Lucid/Orm'
-import UserAccount from './UserAccount'
+import UserAccount from 'App/Models/UserAccount'
 
 export default class Preset extends BaseModel {
   @column({ isPrimary: true })
