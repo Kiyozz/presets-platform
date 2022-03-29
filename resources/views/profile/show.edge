@@ -1,0 +1,11 @@
+@layout('base')
+
+@section('body')
+  @component('partials/nav')
+    @!component('partials/nav-actions')
+  @end
+
+  @component('partials/body')
+    <h1 class="text-4xl text-center">Profile</h1>
+  @end
+@end

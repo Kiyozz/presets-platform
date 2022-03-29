@@ -22,6 +22,7 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('login', 'AuthController.login')
 Route.post('login', 'AuthController.attempt')
+Route.get('logout', 'AuthController.logout')
 
 Route.resource('presets', 'PresetsController').middleware({
   create: 'auth',
@@ -34,3 +35,5 @@ Route.resource('presets', 'PresetsController').middleware({
 Route.get('/', ({ response }) => {
   return response.redirect().status(301).toPath('/presets')
 })
+
+Route.get('profile', 'ProfileController.show').middleware('auth')

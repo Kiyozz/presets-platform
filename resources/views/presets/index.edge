@@ -9,27 +9,27 @@
     @!component('partials/nav-actions')
   @end
 
-  <main class="px-4 py-8 container mx-auto">
+  @component('partials/body')
     <h1 class="text-4xl text-center mb-8">All presets</h1>
 
     <section class="grid grid-cols-2 w-full gap-4">
       @each(preset in presets)
-      <article class="p-4 border rounded flex flex-col gap-2">
-        <div class="text-2xl text-center">{{ preset.name }}</div>
-        <div class="text-sm text-center">by <code>{{ preset.createdBy.username }}</code></div>
-        <img class="mx-auto h-48 w-48 object-contain" src="{{ preset.mainImage }}" alt="{{ preset.name }} main image">
-        <div class="flex flex-row-reverse gap-4">
-          <a href="{{ route('PresetsController.show', { id: preset.id }) }}">View</a>
-          <a href="{{ route('PresetsController.edit', { id: preset.id }) }}">Edit</a>
-        </div>
-      </article>
+        <article class="p-4 border rounded flex flex-col gap-2">
+          <div class="text-2xl text-center">{{ preset.name }}</div>
+          <div class="text-sm text-center">by <code>{{ preset.createdBy.username }}</code></div>
+          <img class="mx-auto h-48 w-48 object-contain" src="{{ preset.mainImage }}" alt="{{ preset.name }} main image">
+          <div class="flex flex-row-reverse gap-4">
+            <a href="{{ route('PresetsController.show', { id: preset.id }) }}">View</a>
+            <a href="{{ route('PresetsController.edit', { id: preset.id }) }}">Edit</a>
+          </div>
+        </article>
       @end
     </section>
 
-    <section class="mt-4 flex flex-row-reverse">
+    <section class="mt-4 flex">
       @each(anchor in presets.getUrlsForRange(1, presets.lastPage))
-      <a href="{{ anchor.url }}">{{ anchor.page }}</a>
+        <a class="px-2 hover:underline" href="{{ anchor.url }}">{{ anchor.page }}</a>
       @end
     </section>
-  </main>
+  @end
 @end

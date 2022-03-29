@@ -22,4 +22,14 @@ export default class AuthController {
 
     return response.redirect().toRoute('PresetsController.index')
   }
+
+  public async logout({ auth, response }: HttpContextContract) {
+    if (!auth.user) {
+      return response.status(401)
+    }
+
+    auth.logout({ auth, response })
+
+    return response.redirect().toRoute('PresetsController.index')
+  }
 }

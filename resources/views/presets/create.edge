@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Presets Platform</title>
-  @entryPointStyles('app')
-</head>
-<body>
-@component('partials/nav')
-@!component('partials/nav-actions')
+@layout('base')
+
+@section('head')
+  <title>Presets Platform - List</title>
 @end
 
-<main class="px-4 container mx-auto">
-  <h1 class="text-4xl text-center">Create a preset</h1>
-</main>
-@entryPointScripts('app')
-</body>
-</html>
+@section('body')
+  @component('partials/nav')
+    @!component('partials/nav-actions')
+  @end
+
+  @component('partials/body')
+    <h1 class="text-center mb-8 flex items-center">
+      <a href="/presets">Back</a>
+      <span class="grow text-4xl">Create</span>
+    </h1>
+  @end
+@end

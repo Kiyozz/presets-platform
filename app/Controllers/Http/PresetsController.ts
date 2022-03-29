@@ -12,6 +12,7 @@ export default class PresetsController {
       .preload('createdBy', (query) => {
         query.select('username')
       })
+      .orderBy('updatedAt', 'desc')
       .paginate(page, limit)
 
     presets.baseUrl('/presets')

@@ -1,1 +1,6 @@
-<a href="{{ route('AuthController.login') }}">Login</a>
+@if (!auth.user)
+  <a href="{{ route('AuthController.login') }}">Login</a>
+@else
+  <a href="{{ route('ProfileController.show') }}">Profile</a>
+  <a href="{{ route('AuthController.logout') }}">Logout</a>
+@end

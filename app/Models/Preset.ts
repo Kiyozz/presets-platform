@@ -19,6 +19,9 @@ export default class Preset extends BaseModel {
   public createdBy: BelongsTo<typeof UserAccount>
 
   @column()
+  public views: number
+
+  @column()
   public status: 'published' | 'draft' | 'deleted' | 'disabled'
 
   @column.dateTime({ autoCreate: true })

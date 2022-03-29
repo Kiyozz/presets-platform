@@ -15,6 +15,7 @@ export default class Presets extends BaseSchema {
       table.string('name', 50).notNullable()
       table.string('main_image').notNullable()
       table.enum('status', ['published', 'draft', 'deleted', 'disabled']).notNullable()
+      table.integer('views').defaultTo(0)
 
       // UserAccount
       table.integer('created_by_id').unsigned().notNullable().references('user_accounts.id')
