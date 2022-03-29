@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeMe}
+    ports:
+      - "5432:5432"
