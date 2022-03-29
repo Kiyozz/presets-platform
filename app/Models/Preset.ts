@@ -22,6 +22,12 @@ export default class Preset extends BaseModel {
   public views: number
 
   @column()
+  public characterName: string
+
+  @column()
+  public race: string
+
+  @column()
   public status: 'published' | 'draft' | 'deleted' | 'disabled'
 
   @column.dateTime({ autoCreate: true })

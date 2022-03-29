@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Preset from 'App/Models/Preset'
+import PresetService from 'App/Services/PresetService'
 
 export default class PresetsController {
   public async index({ view, logger, request }: HttpContextContract) {
@@ -7,15 +7,7 @@ export default class PresetsController {
     const page = request.input('page', 1)
     const limit = 10
 
-    const presets = await Preset.query()
-      .where('status', 'published')
-      .preload('createdBy', (query) => {
-        query.select('username')
-      })
-      .orderBy('updatedAt', 'desc')
-      .paginate(page, limit)
-
-    presets.baseUrl('/presets')
+    const presets = await PresetService.forList(page, limit)
 
     return view.render('presets/index', { presets })
   }
@@ -37,10 +29,7 @@ export default class PresetsController {
     logger.debug('params', params)
 
     const presetId = params.id as number
-    const preset = await Preset.query()
-      .where('status', 'published')
-      .where('id', presetId)
-      .firstOrFail()
+    const preset = await PresetService.forShow(presetId)
 
     return view.render('presets/show', { preset })
   }
@@ -50,10 +39,7 @@ export default class PresetsController {
     logger.debug('params', params)
 
     const presetId = params.id as number
-    const preset = await Preset.query()
-      .where('status', 'published')
-      .where('id', presetId)
-      .firstOrFail()
+    const preset = await PresetService.forEdit(presetId)
 
     return view.render('presets/edit', { preset })
   }

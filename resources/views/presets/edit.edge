@@ -14,5 +14,14 @@
       <a href="/presets">Back</a>
       <span class="grow text-4xl "><code>{{ preset.name }}</code></span>
     </h1>
+
+    <form action="{{ route('PresetsController.update', { id: preset.id }) }}?_method=put" method="post" class="flex flex-col gap-4">
+      <div class="flex flex-col">
+        <label for="presetName">Preset name</label>
+        <input type="text" name="presetName" id="presetName" value="{{ preset.name }}" required>
+      </div>
+
+      <button type="submit">Edit</button>
+    </form>
   @end
 @end

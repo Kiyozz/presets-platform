@@ -19,7 +19,7 @@ export default class UserAccount extends BaseModel {
   @column()
   public rememberMeToken?: string
 
-  @hasMany(() => Preset)
+  @hasMany(() => Preset, { foreignKey: 'createdById' })
   public presets: HasMany<typeof Preset>
 
   @column()

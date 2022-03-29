@@ -4,6 +4,7 @@ specifiers:
   '@adonisjs/assembler': ^5.4.2
   '@adonisjs/auth': ^8.0.12
   '@adonisjs/core': ^5.6.2
+  '@adonisjs/fold': ^8.1.8
   '@adonisjs/lucid': ^17.1.0
   '@adonisjs/repl': ^3.1.9
   '@adonisjs/session': ^6.1.4
@@ -37,6 +38,7 @@ specifiers:
 dependencies:
   '@adonisjs/auth': 8.0.12_87eb08e542a10ceb25472eec40e432dd
   '@adonisjs/core': 5.6.2
+  '@adonisjs/fold': 8.1.8
   '@adonisjs/lucid': 17.1.0_@adonisjs+core@5.6.2+pg@8.7.3
   '@adonisjs/repl': 3.1.9_@adonisjs+core@5.6.2
   '@adonisjs/session': 6.1.4_@adonisjs+core@5.6.2
