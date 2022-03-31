@@ -12,7 +12,7 @@
   @component('partials/body')
     <h1 class="text-center mb-8 flex items-center">
       <a href="/presets">Back</a>
-      <span class="grow text-4xl "><code>{{ preset.name }}</code></span>
+      <span class="grow text-4xl "><span class="highlight">{{ preset.name }}</span></span>
     </h1>
 
     <form action="{{ route('PresetsController.update', { id: preset.id }) }}?_method=put" method="post" class="flex flex-col gap-4">

@@ -1,12 +1,12 @@
 @layout('base')
 
 @section('body')
-  <main class="h-screen flex justify-center items-center container mx-auto px-12 relative">
-    <a href="{{ route('PresetsController.index') }}" class="absolute top-0 p-6">Back</a>
+  <main class="h-screen flex flex-col justify-center items-center container mx-auto px-12 relative">
+    <a href="{{ route('PresetsController.index') }}" class="p-6 mb-auto mt-2">Back</a>
 
-    <div>
+    <div class="mb-auto">
       <section class="mb-4">
-        <h1 class="text-3xl">Welcome to <code>Presets Platform</code></h1>
+        <h1 class="text-3xl">Welcome to <span class="highlight">Presets Platform</span></h1>
       </section>
       <section class="border rounded p-4">
         <form action="{{ route('AuthController.attempt') }}" method="post" class="flex flex-col gap-4">

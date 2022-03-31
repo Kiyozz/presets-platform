@@ -1,15 +1,48 @@
-@import "@fontsource/poppins/latin-500.css";
-@import "@fontsource/poppins/latin-400.css";
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-400.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  @apply min-h-screen text-gray-600;
-  @apply antialiased;
+@layer base {
+  html,
+  body {
+    @apply min-h-screen text-body-400;
+    @apply antialiased;
+  }
 }
 
-code {
-  @apply bg-gray-300;
+@layer components {
+  button {
+    @apply rounded bg-primary-400 px-4 py-2 transition-[box-shadow] focus:ring-1;
+  }
+
+  a {
+    @apply rounded px-4 py-2 transition-[box-shadow] focus:ring-1;
+  }
+
+  body {
+    @apply bg-primary-600;
+  }
+
+  .highlight {
+    @apply relative;
+  }
+
+  .highlight::before {
+    @apply absolute bg-primary-400;
+    z-index: -1;
+    top: 66%;
+    height: 24%;
+    right: -6px;
+    left: -6px;
+    content: '';
+  }
+
+  .highlight-small::before {
+    left: -3px;
+    right: -3px;
+    top: 60%;
+  }
 }

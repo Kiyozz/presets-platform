@@ -11,9 +11,12 @@
 
   @component('partials/body')
     <main class="px-4 py-8 container mx-auto">
-      <h1 class="text-center mb-8 flex items-center">
-        <a href="/presets">Back</a>
-        <span class="grow text-4xl"><code>{{ preset.name }}</code> by {{ preset.createdBy.username }}</span>
+      <h1 class="text-center mb-8 flex">
+        <a class="self-start py-6 px-1" href="/presets">Back</a>
+        <span class="grow flex flex-col justify-center items-center">
+          <span class="highlight text-4xl">{{ preset.name }}</span>
+          <span class="text-xl mt-2">by {{ preset.createdBy.username }}</span>
+        </span>
       </h1>
     </main>
   @end

@@ -28,7 +28,7 @@ export default class AuthController {
       return response.status(401)
     }
 
-    auth.logout({ auth, response })
+    await auth.use('web').logout()
 
     return response.redirect().toRoute('PresetsController.index')
   }

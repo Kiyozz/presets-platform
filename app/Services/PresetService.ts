@@ -6,10 +6,14 @@ export default class PresetService {
     const presets = await Preset.query()
       .where('status', 'published')
       .preload('createdBy', (query) => {
-        query.select('username')
+        query.select('username').where('status', 'active')
       })
       .orderBy('updatedAt', 'desc')
       .paginate(page, limit)
+
+    if (presets.find((p) => p.createdBy !== null)) {
+      console.log(presets.find((p) => p.createdBy !== null))
+    }
 
     presets.baseUrl('/presets')
 

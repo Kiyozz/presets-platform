@@ -9,8 +9,10 @@
     @!component('partials/nav-actions')
   @end
 
-  @component('partials/body')
-    <h1 class="text-4xl text-center mb-8">All presets</h1>
+  @component('partials/body', {
+    className: 'flex flex-col'
+  })
+    <h1 class="text-4xl text-center mb-8 highlight self-center">All presets</h1>
 
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-4">
       @each(preset in presets)

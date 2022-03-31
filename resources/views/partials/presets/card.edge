@@ -1,12 +1,18 @@
-<article class="p-4 border rounded flex flex-col gap-2">
-  <div class="text-2xl text-center">{{ preset.name }}</div>
-  <div class="text-sm text-center">by <code>{{ preset.createdBy.username }}</code></div>
-  <img class="mx-auto h-48 w-48 object-contain" src="{{ preset.mainImage }}" alt="{{ preset.name }} main image">
-  <div class="flex flex-row-reverse gap-4">
-    <a href="{{ route('PresetsController.show', { id: preset.id }) }}">View</a>
+<article class="border rounded shadow-sm hover:shadow-md transition-[box-shadow]">
+  <div class="text-2xl text-center pt-4 px-4">{{ preset.name }}</div>
+  <div class="text-sm text-center">by <span class="text-gray-700">{{ preset.createdBy.username }}</span></div>
+  <img class="mx-auto h-48 w-48 object-contain pt-2" src="{{ preset.mainImage }}" alt="{{ preset.name }} main image">
+  <div class="flex gap-4 px-4 py-2">
+    <div class="flex gap-2 items-center">
+      <span>{{ preset.downloads }}</span>
+      @!component('partials/icons/download')
+    </div>
+    <div class="flex ml-auto">
+      <a href="{{ route('PresetsController.show', { id: preset.id }) }}">View</a>
 
-    @if(auth.user?.id === preset.createdById)
-      <a href="{{ route('PresetsController.edit', { id: preset.id }) }}">Edit</a>
-    @end
+      @if(auth.user?.id === preset.createdById)
+        <a href="{{ route('PresetsController.edit', { id: preset.id }) }}">Edit</a>
+      @end
+    </div>
   </div>
 </article>
